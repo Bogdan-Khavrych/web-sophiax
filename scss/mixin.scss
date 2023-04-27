@@ -1,0 +1,82 @@
+.--default-btn{
+    border: none;
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.5;
+    font-family: 'Readex Pro'; 
+    font-weight: 500;
+    padding: 16px 32px;
+    border-radius: 80px;
+    transition: .3s ease-in-out;
+    &:active{
+        transform: scale(.95);
+    }
+    &-primary{
+        color: #ffffff;
+        background-color: #1569A1;
+        &:hover{
+            background-color: #F6914C;
+        }
+        &:disabled{
+            background: linear-gradient(0deg, #1569A1, #1569A1), #F6914C;
+            opacity: 0.5;
+        }
+    }
+    &-dark{
+        background-color: #ffffff;
+        color: #1569A1;
+        &:hover{
+            background-color: #FCB533;
+            color: #ffffff;
+        }
+        &:disabled{
+            color: #1569A1;
+            opacity: 0.5;
+            background-color: #ffffff;
+        }
+    }
+}
+
+.--input-wrap {
+    position: relative;
+    width: 100%;
+    &.active .--input-placeholder{
+        font-size: 14px;
+    }
+    margin-top: 32px;
+    &:first-child{
+        margin-top: 0;
+    }
+}
+.--input-placeholder {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    font-size: 16px;
+    transition: .3s ease-in-out;
+    color: rgba(255, 255, 255, 0.6);
+    font-family: 'Open Sans';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+}
+.--input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #FFFFFF;
+    transition: .3s ease-in-out;
+    font-family: 'Open Sans';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #FFFFFF;
+    background-color: transparent;
+    padding: 16px 0;
+
+    &:focus ~ .--input-placeholder,
+    &:not(:focus):valid ~ .--input-placeholder{
+        top: 0px;
+        font-size: 14px;
+    }
+}
