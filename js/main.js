@@ -13,12 +13,21 @@ if (window.innerWidth >= 1025) {
         loadScreen();
     });
 } else {
-    document.querySelector('html').addEventListener("touchmove", () => {
+    document.querySelector('.mobile-scroll').addEventListener("scroll", () => {
         loadScreen();
+        headerMobile();
     });
-    document.querySelector('html').addEventListener("mousewheel", () => {
-        loadScreen();
-    });
+}
+
+let lastScrollTop = 0;
+function headerMobile() {
+    if (document.querySelector('.mobile-scroll').scrollTop < lastScrollTop) {
+        document.querySelector("header").classList.add('active');
+    } else {
+        document.querySelector("header").classList.remove('active');
+        document.querySelector("header").classList.remove('transparent');
+    }
+    lastScrollTop = document.querySelector('.mobile-scroll').scrollTop;
 }
 
 function loadScreen() {
@@ -26,9 +35,8 @@ function loadScreen() {
     if (window.innerWidth >= 1025) {
         scrollDemo = document.querySelector("#scrollDemo .fp-overflow")
     } else {
-        scrollDemo = document.querySelector("html")
+        scrollDemo = document.querySelector(".mobile-scroll")
     }
-    console.log(scrollDemo.scrollTop)
     let endPoint = document.querySelector(".screen").offsetHeight - window.innerHeight;
 
     if (scrollDemo.scrollTop <= 500) {
@@ -132,11 +140,11 @@ function loadPortfolio() {
     let scrollStart = teamViewHeight;
     let scrollEnd = document.querySelector('.team .fp-overflow .team-scroll').offsetHeight - window.innerHeight;
 
-    function calcHandler(){
+    function calcHandler() {
         let formula = (element.scrollTop - scrollStart) * (380 / scrollEnd);
-        if (formula <= 0){
+        if (formula <= 0) {
             return 0
-        } else{
+        } else {
             return formula
         }
     }
@@ -155,25 +163,25 @@ function loadPortfolio() {
     if (element.scrollTop >= (teamViewHeight + portfolioViewHeight - 300)) {
         document.querySelector('.nav__current-count').innerHTML = '4'
         document.querySelector('.nav__items').classList.remove('--items-active-blue')
-    
+
         document.querySelectorAll('.nav__link').forEach((element) => {
             element.classList.remove('current');
         });
         document.querySelector('.nav__link-contacts').classList.add('current')
-    } 
+    }
     else if (element.scrollTop >= teamViewHeight - 200) {
         document.querySelector('.nav__current-count').innerHTML = '3'
         document.querySelector('.nav__items').classList.add('--items-active-blue')
-    
+
         document.querySelectorAll('.nav__link').forEach((element) => {
             element.classList.remove('current');
         });
         document.querySelector('.nav__link-portfolio').classList.add('current')
-    } 
-    else if (element.scrollTop < teamViewHeight - 200){
+    }
+    else if (element.scrollTop < teamViewHeight - 200) {
         document.querySelector('.nav__current-count').innerHTML = '2'
         document.querySelector('.nav__items').classList.add('--items-active-blue')
-    
+
         document.querySelectorAll('.nav__link').forEach((element) => {
             element.classList.remove('current');
         });
@@ -183,65 +191,101 @@ function loadPortfolio() {
 
 
     // Navgiation logic
- 
+
 }
 
 
 document.querySelectorAll('.--link-about').forEach((element) => {
     element.addEventListener('click', function (e) {
         e.preventDefault();
-        fullpage_api.moveTo('about', 0);
-        burgerClose();
+        if (window.innerWidth >= 1025) {
+            fullpage_api.moveTo('about', 0);
+            burgerClose();
+        } else {
+            fullpage_api.moveTo('about', 0);
+            burgerClose();
+
+            let screen = document.querySelector(".screen").offsetHeight;
+            document.querySelector('.mobile-scroll').scrollTop = screen;
+        }
+
     })
 });
 
 document.querySelectorAll('.--link-team').forEach((element) => {
     element.addEventListener('click', function (e) {
         e.preventDefault();
-        slideIndexS = 3;
-        fullpage_api.moveTo('about', 2);
-        fullpage_api.moveTo('our-team');
+        if (window.innerWidth >= 1025) {
+            slideIndexS = 3;
+            fullpage_api.moveTo('about', 2);
+            fullpage_api.moveTo('our-team');
+    
+            let scrollElement = document.querySelector(".team .fp-overflow")
+            scrollElement.scrollTop = 1;
+            setTimeout(() => {
+                scrollElement.scrollTop = 0;
+            }, 100);
+    
+            loadPortfolio();
+            burgerClose();
+        } else {
+            burgerClose();
 
-        let scrollElement = document.querySelector(".team .fp-overflow")
-        scrollElement.scrollTop = 1;
-        setTimeout(() => {
-            scrollElement.scrollTop = 0;   
-        }, 100);
-        
-        loadPortfolio();
-        burgerClose();
+            let screen = document.querySelector(".screen").offsetHeight;
+            let about = document.querySelector(".about").offsetHeight;
+            document.querySelector('.mobile-scroll').scrollTop = screen + about;
+        }
     })
 });
 
 document.querySelectorAll('.--link-portfolio').forEach((element) => {
     element.addEventListener('click', function (e) {
         e.preventDefault();
-        slideIndexS = 3;
-        fullpage_api.moveTo('about', 2);
-        fullpage_api.moveTo('our-team');
+        if (window.innerWidth >= 1025) {
+            slideIndexS = 3;
+            fullpage_api.moveTo('about', 2);
+            fullpage_api.moveTo('our-team');
+    
+            let scrollElement = document.querySelector(".team .fp-overflow")
+            let scrollEnd = document.querySelector('.team__view').offsetHeight;
+            scrollElement.scrollTop = scrollEnd;
+    
+            loadPortfolio();
+            burgerClose();
+        } else {
+            burgerClose();
 
-        let scrollElement = document.querySelector(".team .fp-overflow")
-        let scrollEnd = document.querySelector('.team__view').offsetHeight;
-        scrollElement.scrollTop = scrollEnd;
-
-        loadPortfolio();
-        burgerClose();
+            let screen = document.querySelector(".screen").offsetHeight;
+            let about = document.querySelector(".about").offsetHeight;
+            let team = document.querySelector(".team__view").offsetHeight;
+            document.querySelector('.mobile-scroll').scrollTop = screen + about + team;
+        }
     })
 });
 
 document.querySelectorAll('.--link-contacts').forEach((element) => {
     element.addEventListener('click', function (e) {
         e.preventDefault();
-        slideIndexS = 3;
-        fullpage_api.moveTo('about', 2);
-        fullpage_api.moveTo('our-team');
+        if (window.innerWidth >= 1025) {
+            slideIndexS = 3;
+            fullpage_api.moveTo('about', 2);
+            fullpage_api.moveTo('our-team');
+    
+            let scrollElement = document.querySelector(".team .fp-overflow")
+            let scrollEnd = document.querySelector('.team-scroll').offsetHeight + document.querySelector('.our-scroll').offsetHeight;
+            scrollElement.scrollTop = scrollEnd;
+    
+            loadPortfolio();
+            burgerClose();
+        } else {
+            burgerClose();
 
-        let scrollElement = document.querySelector(".team .fp-overflow")
-        let scrollEnd = document.querySelector('.team-scroll').offsetHeight + document.querySelector('.our-scroll').offsetHeight;
-        scrollElement.scrollTop = scrollEnd;
-
-        loadPortfolio();
-        burgerClose();
+            let screen = document.querySelector(".screen").offsetHeight;
+            let about = document.querySelector(".about").offsetHeight;
+            let team = document.querySelector(".team__view").offsetHeight;
+            let portfolio = document.querySelector(".our__view").offsetHeight;
+            document.querySelector('.mobile-scroll').scrollTop = screen + about + team + portfolio;
+        }
     })
 });
 
@@ -251,20 +295,20 @@ let mouseDown = false;
 let startX, scrollLeft;
 
 let startDragging = function (e) {
-  mouseDown = true;
-  startX = e.pageX - slider.offsetLeft;
-  scrollLeft = slider.scrollLeft;
+    mouseDown = true;
+    startX = e.pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
 };
 let stopDragging = function (event) {
-  mouseDown = false;
+    mouseDown = false;
 };
 
 slider.addEventListener('mousemove', (e) => {
-  e.preventDefault();
-  if(!mouseDown) { return; }
-  const x = e.pageX - slider.offsetLeft;
-  const scroll = x - startX;
-  slider.scrollLeft = scrollLeft - scroll;
+    e.preventDefault();
+    if (!mouseDown) { return; }
+    const x = e.pageX - slider.offsetLeft;
+    const scroll = x - startX;
+    slider.scrollLeft = scrollLeft - scroll;
 });
 
 // Add the event listeners
