@@ -111,7 +111,7 @@
   }
 }
 
-@media (max-width: 1460px) {
+@media (max-width: 1024px) {
   .footer__copyright {
     font-size: 14px;
   }
@@ -145,7 +145,7 @@
     margin-top: 24px;
   }
   .about__view {
-    min-height: 480px;
+    min-height: 531px;
   }
 }
 
@@ -285,12 +285,14 @@
   .our__projects {
     margin-top: 40px;
   }
-  .our__project-desc,
-  .our__project-link {
+  .our__project-desc {
     font-size: 20px;
   }
+  .our__project-link{
+    font-size: 16px;
+  }
   .our__project-link {
-    padding-right: 24px;
+    padding-right: 20px;
   }
   .our__project-link::after {
     width: 12px;
@@ -356,17 +358,11 @@
   .--title {
     font-size: 32px;
   }
-  .--default-btn {
-    padding: 14px 28px;
-  }
 
   .our__project-content {
     margin-top: 16px;
   }
-  .our__project-desc,
-  .our__project-link {
-    font-size: 16px;
-  }
+
   .contacts__view {
     flex-direction: column;
   }
@@ -417,10 +413,6 @@
     margin-right: 0;
     margin-top: 40px;
   }
-  .our__project-desc,
-  .our__project-link {
-    font-size: 20px;
-  }
   .team__avatar {
     height: 200px;
   }
@@ -454,16 +446,13 @@
   }
   .header__menu {
     width: 100%;
-    padding: 24px 32px;
+    padding: 24px 20px 24px 20px;
   }
   .header__burger-btn {
     margin-left: 24px;
   }
   .--title {
     font-size: 28px;
-  }
-  .--default-btn {
-    padding: 12px 24px;
   }
   .container {
     padding: 0 30px;
@@ -513,16 +502,6 @@
   .screen__intro .screen__title {
     font-size: 64px;
   }
-  .header__menu {
-    padding: 24px;
-  }
-  .--title {
-    font-size: 24px;
-  }
-  .our__project-desc,
-  .our__project-link {
-    font-size: 16px;
-  }
   .team__avatar {
     height: 200px;
   }
@@ -535,9 +514,6 @@
 
   .our__projects {
     margin-top: 0;
-  }
-  .--default-btn {
-    padding: 8px 16px;
   }
   .team__link,
   .contacts__btn {
@@ -581,9 +557,6 @@
   }
   .contacts__desc {
     font-size: 14px;
-  }
-  .--title {
-    font-size: 22px;
   }
 }
 
@@ -634,6 +607,7 @@
     font-size: 28px;
   }
   .about__items {
+    padding-right: 0;
     max-width: none;
   }
   .about__view {
@@ -675,6 +649,22 @@
 }
 
 @media (max-width: 580px) {
+  .header__logo-menu{
+    display: block;
+  }
+  .contacts__desc{
+    margin-top: 16px;
+    font-size: 14px;
+  }
+  .contacts__form{
+    margin-top: 32px;
+  }
+  .contacts__subtitle-mt-sm{
+    margin-top: 24px;
+  }
+  .about__title-sm{
+    font-size: 20px;
+  }
   .header__menu-top-lang {
     margin-left: auto;
     margin-right: 40px;
@@ -703,12 +693,6 @@
   }
   .about__items {
     margin-top: 24px;
-  }
-  .about__item-title {
-    font-size: 16px;
-  }
-  .about__item-desc {
-    font-size: 14px;
   }
 }
 

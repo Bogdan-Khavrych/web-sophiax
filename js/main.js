@@ -119,10 +119,14 @@ function burgerClose() {
 }
 
 document.querySelector('.header__burger-btn').addEventListener('click', function () {
+    burgerOpen();
+})
+
+function burgerOpen(){
     document.querySelector('.header__burger').classList.add("active");
     document.querySelector('.header').classList.add("burger-active");
     document.querySelector('.cover').classList.add("active");
-})
+}
 
 document.querySelector('.header__burger-close').addEventListener('click', function () {
     burgerClose();
@@ -208,7 +212,6 @@ document.querySelectorAll('.--link-about').forEach((element) => {
             let screen = document.querySelector(".screen").offsetHeight;
             document.querySelector('.mobile-scroll').scrollTop = screen;
         }
-
     })
 });
 

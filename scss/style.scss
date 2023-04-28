@@ -108,6 +108,7 @@ body{
 }
 
 .header__menu-top-lang{
+    display: flex;
     position: relative;
     &.active .header__lang-menu{
         visibility: visible;
@@ -321,7 +322,9 @@ body{
     letter-spacing: 2px;
 }
 .screen__intro .screen__alpha {
-    fill: rgb(245, 245, 245);
+    /* fill: rgb(245, 245, 245); */
+    fill: rgb(255, 255, 255);
+
 }
 .screen__intro .screen__base {
     fill: #15263A;
@@ -466,12 +469,17 @@ body{
     transition: .3s ease-in-out;
     opacity: 0;
     visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 .nav__items {
     display: flex;
     transform: rotate(180deg) translate(-4px);
     writing-mode: vertical-lr;
     text-align: center;
+    padding-left: 8px;
 }
 .nav__item {
     color: #9EA7B0;
@@ -556,6 +564,10 @@ body{
 }
 
 .about__lines{
+    max-width: 1032px;
+    margin-left: 0;
+    margin-right: auto;
+    padding: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -647,8 +659,8 @@ body{
     margin-left: 24px;
 }
 .about__image-decor {
+    max-width: 484px;
     display: block;
-    max-width: 420px;
 }
 .about__item-title {
     font-weight: 500;
@@ -977,7 +989,7 @@ a.team__worker{
 }
 .footer__link {
     font-family: 'Open Sans';
-    font-weight: 600;
+    font-weight: 400;
     color: #2C3136;
     font-size: 16px;
     line-height: 1.5;
@@ -1048,7 +1060,7 @@ a.team__worker{
     margin-top: 24px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .our__project-link{
@@ -1137,4 +1149,8 @@ a.team__worker{
     100%{
         opacity: 1;
     }
+}
+
+.header__logo-menu{
+    display: none;
 }
