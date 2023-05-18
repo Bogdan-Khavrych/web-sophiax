@@ -1,0 +1,61 @@
+@@include('_header.html')
+
+<main class="contacts-page">
+
+    <section class="section contact">
+        <div class="contacts --white-contacts">
+            <div class="contacts__wrap">
+                <div class="container-page">
+                    <div class="contacts__view">
+                        <div class="contacts__block">
+                            <h2 class="--title contacts__title --color-dark">let’s talk!</h2>
+                            <p class="contacts__desc --color-grey">Please fill out the form below to schedule a consultation
+                                with one of our experts. We will get back to you as soon
+                                as possible.</p>
+                            <form action="#" class="contacts__form">
+                                <div class="--input-wrap">
+                                    <input type="text" class="--input --color-grey" required>
+                                    <label class="--input-placeholder" style="color: #616C77">Name</label>
+                                </div>
+                                <div class="--input-wrap">
+                                    <input type="text" class="--input --color-grey" required>
+                                    <label class="--input-placeholder" style="color: #616C77">Email</label>
+                                </div>
+                                <div class="--input-wrap">
+                                    <input type="text" class="--input --color-grey" required>
+                                    <label class="--input-placeholder" style="color: #616C77">Message</label>
+                                </div>
+                                <button type="submit"
+                                    class="--default-btn --default-btn-primary contacts__btn">Submit</button>
+                            </form>
+                        </div>
+                        <div class="contacts__info">
+                            <p class="contacts__subtitle --color-dark">Contacts</p>
+                            <p class="contacts__text --color-grey">Email: <a href="mailto:#"
+                                    class="contacts__link">your.company@gmail.com</a></p>
+                            <p class="contacts__text --color-grey">Phone: <a href="tel:#" class="contacts__link">+1 (603)
+                                    555-0123</a>
+                            </p>
+                            <p class="contacts__subtitle contacts__subtitle-mt-sm --color-dark">follow us</p>
+                            <div class="contacts__socials">
+                                <a href="#" class="contacts__social">
+                                    <img src="images/inst-white.svg" alt="#" class="contacts__social-logo">
+                                </a>
+                                <a href="#" class="contacts__social">
+                                    <img src="images/in-white.svg" alt="#" class="contacts__social-logo">
+                                </a>
+                                <a href="#" class="contacts__social">
+                                    <img src="images/twit-white.svg" alt="#" class="contacts__social-logo">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @@include('./template-parts/_footer-block.html')
+        </div>
+    </section>
+
+</main>
+
+@@include('_footer.html')

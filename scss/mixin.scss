@@ -1,3 +1,27 @@
+.--blue-bg{
+    background-color: #15263A !important;
+}
+.--grey-bg{
+    background-color: #f5f5f5 !important;
+}
+.--white-bg{
+    background-color: #FFFFFF !important;
+}
+.--color-dark{
+    color: #121416 !important;
+}
+.--color-grey{
+    color: #2C3136 !important;
+}
+.--color-white{
+    color: #ffffff !important;
+}
+
+.--page{
+    background-color: #ffffff !important;
+    padding-top: 82px;
+}
+
 .--default-btn{
     border: none;
     text-align: center;
@@ -61,6 +85,11 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 1.5;
+    pointer-events: none;
+}
+[dir="rtl"] .--input-placeholder{
+    right: 0;
+    left: auto;
 }
 .--input {
     width: 100%;
